@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>Features</title>
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+<!--[if IE 7]>
+<!--<link rel="stylesheet" href="font-awesome/css/font-awesome-ie7.min.css">-->
+
+<link rel="stylesheet" type="text/css" href="fontawesome-free-5.7.2-web/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="fontawesome-free-5.7.2-web/css/v4-shims.min.css">
+
+<!-- JQuery -->
+<script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script><link rel="stylesheet" type="text/css" href="chartist/chartist-plugin-tooltip/dist/chartist-plugin-tooltip.min.css">
+<link rel="stylesheet" type="text/css" href="chartist/dist/chartist.min.css">
+<script src="chartist/dist/chartist.min.js"></script>
+<script src="chartist/chartist-plugin-tooltip/dist/chartist-plugin-tooltip.min.js"></script>
+<!-- Required Stylesheets -->
+<link href="bootstrap-treeview/dist/bootstrap-treeview.min.css" rel="stylesheet">
+
+<!-- Required Javascript -->
+<script src="bootstrap-treeview/dist/bootstrap-treeview.min.js"></script><!-- DataTables -->
+<link type="text/css" href="datatables/1.10.20/datatables.min.css" rel="stylesheet" />
+<script type="text/javascript" src="datatables/1.10.20/datatables.min.js"></script>
+<script type="text/javascript" src="datatables/1.10.20/time-elapsed-dhms.js"></script>
+
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="datatables/1.10.20/datatables.bootstrap4.min.js"></script>
+<link type="text/css" href="datatables/1.10.20/datatables.bootstrap4.min.css" rel="stylesheet" />
+
+<script>
+    jQuery.fn.dataTable.ext.type.order['time-elapsed-dhms-pre'] = function(data) {
+
+        var matches = data.match(/^(\d+(?:\.\d+)?)\s*([a-z]+)/i);
+        var multipliers = {
+            ms: 1,
+            s: 1000,
+            m: 60000,
+            h: 3600000,
+            d: 86400000
+        };
+
+        if (matches) {
+            var multiplier = multipliers[matches[2].toLowerCase()];
+            return parseFloat(matches[1]) * multiplier;
+        } else {
+            return -1;
+        };
+    };
+</script>
+<link rel="stylesheet" href="css/core.css"/>
+<link rel="stylesheet" href="css/link.css"/>
+<link type="text/css" media="screen" href="css/screen.css" rel="Stylesheet"/><!-- JQuery-UI -->
+<link type="text/css" href="jqueryui/1.11.2-start/jquery-ui.min.css" rel="Stylesheet" />
+<script type="text/javascript" src="jqueryui/1.11.2-start/jquery-ui.min.js"></script><!-- DataTables -->
+<link type="text/css" href="datatables/1.10.20/datatables.min.css" rel="stylesheet" />
+<script type="text/javascript" src="datatables/1.10.20/datatables.min.js"></script>
+<script type="text/javascript" src="datatables/1.10.20/time-elapsed-dhms.js"></script>
+
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="datatables/1.10.20/datatables.bootstrap4.min.js"></script>
+<link type="text/css" href="datatables/1.10.20/datatables.bootstrap4.min.css" rel="stylesheet" />
+
+<script>
+    jQuery.fn.dataTable.ext.type.order['time-elapsed-dhms-pre'] = function(data) {
+
+        var matches = data.match(/^(\d+(?:\.\d+)?)\s*([a-z]+)/i);
+        var multipliers = {
+            ms: 1,
+            s: 1000,
+            m: 60000,
+            h: 3600000,
+            d: 86400000
+        };
+
+        if (matches) {
+            var multiplier = multipliers[matches[2].toLowerCase()];
+            return parseFloat(matches[1]) * multiplier;
+        } else {
+            return -1;
+        };
+    };
+</script>
+
+
+
+    <script>
+
+        $(document).ready(function () {
+
+            var scenarioTable = $('.scenario-result-table').DataTable({
+
+                "order": [],
+                "language": {
+                    searchPlaceholder: "Filter",
+                    search: ""
+                }
+            });
+
+            $('.example-table table').DataTable({
+                searching: false,
+                ordering: false,
+                paging: false,
+                info: false
+            });
+
+            $('.example-table-in-scenario table').DataTable({
+                searching: false,
+                ordering: false,
+                paging: false,
+                info: false
+            });
+
+            $('#evidence-table').DataTable(
+                {
+                    searching: false,
+                    ordering: false,
+                    paging: false,
+                    info: false
+                }
+            );
+
+
+            $(".scenario-docs .card-body table").wrap("<div class='table-responsive'></div>");
+
+            $("#requirements-tabs").tabs();
+            $("#test-tabs").tabs();
+
+            var requirementsTree = [{"text":"consulta de datos metereologicos para cualquier ubicacion en la tierra","type":"feature","href":"771a7d69945687b48b664e38a9c6a869a04fa5c40b92d8d8ac55c17cc0873f18.html","nodes":[],"selectable":false,"tags":["\u003ca href\u003d\u0027##beforetable\u0027\u003e\u003ci class\u003d\u0027fa fa-exclamation-triangle error-icon \u0027 title\u003d\u0027ERROR\u0027\u003e\u003c/i\u003e\u003c/a\u003e","\u003cspan class\u003d\u0027feature-count\u0027\u003e7 scenarios\u003c/span\u003e"]}];
+
+            $('#tree').treeview({
+                data: requirementsTree,
+                enableLinks: true,
+                showTags: true,
+                expandIcon: "glyphicon glyphicon-folder-close",
+                collapseIcon: "glyphicon glyphicon-folder-open",
+                emptyIcon: "glyphicon glyphicon-book"
+            });
+
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $(".scenario-docs > div > p").html(function () {
+                var text = $(this).text().trim().split(" ");
+                var first = text.shift();
+                return (text.length > 0 ? "<strong>" + first + "</strong> " : first) + text.join(" ");
+            });
+        });
+    </script>
+</head>
+
+<body class="results-page">
+<div id="topheader">
+    <div id="topbanner">
+        <div id="logo"><a href="index.html"><img src="images/serenity-logo.png" border="0"/></a></div>
+        <div id="projectname-banner" style="float:right">
+            <span class="projectname">
+                <span class="projecttitle">Serenity and Cucumber Quick Start</span>
+                <span class="projectsubtitle"></span>
+            </span>
+        </div>
+    </div>
+</div>
+
+
+<div class="middlecontent">
+    <div id="contenttop">
+        <div class="middlebg">
+            <span class="breadcrumbs">
+            <a href='index.html'>Home</a> > <a href="capabilities.html">Requirements</a>
+
+                > <a href="2e9cab422eb237e1a6f0d0330a7ef97cd6011b6919371edd0efcaa547bc5e573.html">Clima</a>
+
+
+                    > <span class="truncate-40">Consulta De Datos Metereologicos Para Cualquier Ubicacion En La Tierra</span>
+
+            </span>
+        </div>
+        <div class="rightbg"></div>
+    </div>
+    <div class="clr"></div>
+
+    <!--/* starts second table*/-->
+
+<div>
+    <ul class="nav nav-tabs" role="tablist">
+        <li >
+            <a href="index.html"><i class="fa fa-check-square-o"></i> Overall Test Results</a>
+        </li>
+        <li >
+            <a href="capabilities.html"><i class="fa fa-book"></i> Requirements</a>
+        </li>
+        <li >
+            <a href="7ea0a5e2d679b9deeda9910ae4a9bcd3a281e0d908303a9e16e486103e98880c.html"><i class="fa fa-comments-o"></i> Capabilities</a>
+        </li>
+        <li class="active">
+            <a href="#"><i class="fa fa-comments-o"></i> Features</a>
+        </li>
+    </ul>
+    <span class="date-and-time"><a href="build-info.html"><i class="fa fa-info-circle"></i></a> Report generated 06-02-2022 20:57</span>
+    <br style="clear:left"/>
+</div>
+
+    <div class="clr"></div>
+
+    <div id="beforetable"></div>
+    <div id="results-dashboard">
+        <div class="table">
+            <div class=row">
+                <div class="col-sm-12">
+                    <div>
+                        <div clas="table">
+                            <div class="row">
+                                <div class="col-sm-8">
+                                        <span>
+                                            <h2><i class="fa fa-book"></i> Feature:  Consulta De Datos Metereologicos Para Cualquier Ubicacion En La Tierra</h2>
+                                        </span>
+                                    </div>
+                                        <div class="col-sm-4">
+                                        <span class="feature-tags">
+                                                <p class="tag">
+                                                    <span class="badge tag-badge" style="background:default;">
+                                                        <i class="fa fa-tag"></i>&nbsp;<a class="tagLink"
+                                                                                          style="background:default;"
+                                                                                          href="ac986b001a06b4fdc6344ee4066994f2a7696b7baef63b565aa0332d69694668.html">Pruebas
+                                                        (tag)</a>
+                                                    </span>
+                                                </p>
+                                        </span>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                            <div class="requirementNarrativeTitle">
+                                
+                            </div>
+
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-sm-12">
+
+                        <!-- Requirements result tabs -->
+                        <ul class="nav nav-tabs">
+                            <li class="active">
+                                <a data-toggle="tab" href="#specs"><i class="fas fa-comments"></i> Specifications</a>
+                            </li>
+                            <li>
+                                <a data-toggle="tab" href="#results"><i class="fas fa-tachometer-alt"></i> Test Results</a>
+                            </li>
+                        </ul>
+
+                        <!-- Specifications and Results tabs -->
+                        <div class="card border">
+                            <div class="tab-content" id="pills-tabContent">
+                                <div id="specs" class="tab-pane fade in active">
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-sm-12">
+
+                                                    <!--- TOC --->
+                                                    <div id="toc">
+                                                        <h3>Overview</h3>
+                                                        <table class="table" id="toc-table">
+                                                                        <tr>
+                                                                            <td style="width:95%;" class="toc-title">
+                                                                                <span class="orphan-scenario-toc-entry">
+                                                                                    <a href="#6d98d5af992b877ec774118823842036d128c86449a85551f2c2b2fd31fa4d22" title="View scenario details">
+                                                                                        <i class="far fa-comment-dots"></i> Scenario Outline: consultar el clima por ciudades en diferentes continentes
+                                                                                    </a>
+                                                                                        (6 examples)
+                                                                                </span>
+                                                                            </td>
+                                                                            <td style="width:5%;">
+                                                                                <table>
+                                                                                    <tr>
+                                                                                        <td>
+                                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                               href="ba5bef9190a819f51c31b2747c9d2401f786cd1a9538c16c4106f11e621edcd5.html"
+                                                                                               title="View test results">
+                                                                                                <a href='##beforetable'><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></a>
+                                                                                                </a>
+
+
+                                                                                        </td>
+                                                                                            <td>
+                                                                                                <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                                   href="ba5bef9190a819f51c31b2747c9d2401f786cd1a9538c16c4106f11e621edcd5.html"
+                                                                                                   title="View test results">
+                                                                                                    <i class="fas fa-search-plus"></i>
+                                                                                                </a>
+                                                                                            </td>
+                                                                                    </tr>
+                                                                                </table>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td style="width:95%;" class="toc-title">
+                                                                                <span class="orphan-scenario-toc-entry">
+                                                                                    <a href="#70496795ffbf5b5792a46c8d2b924deefa3c8352e0c9a56fab7ae20da4f6e26c" title="View scenario details">
+                                                                                        <i class="far fa-comment-dots"></i> Scenario Outline: Obtener la temperatura en diferente unidades
+                                                                                    </a>
+                                                                                        (4 examples)
+                                                                                </span>
+                                                                            </td>
+                                                                            <td style="width:5%;">
+                                                                                <table>
+                                                                                    <tr>
+                                                                                        <td>
+                                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                               href="bded3b051ecbe61b95bf1deb33bd379ff3f0da128b24ad9abe9568eb12e4a9e4.html"
+                                                                                               title="View test results">
+                                                                                                <a href='##beforetable'><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></a>
+                                                                                                </a>
+
+
+                                                                                        </td>
+                                                                                            <td>
+                                                                                                <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                                   href="bded3b051ecbe61b95bf1deb33bd379ff3f0da128b24ad9abe9568eb12e4a9e4.html"
+                                                                                                   title="View test results">
+                                                                                                    <i class="fas fa-search-plus"></i>
+                                                                                                </a>
+                                                                                            </td>
+                                                                                    </tr>
+                                                                                </table>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td style="width:95%;" class="toc-title">
+                                                                                <span class="orphan-scenario-toc-entry">
+                                                                                    <a href="#e06b55280630ae984106f5c6750ea864222e825dc8dbcbf226fd29209eef9ff2" title="View scenario details">
+                                                                                        <i class="far fa-comment-dots"></i> Scenario Outline: consultar el estado del clima por codigo de estado en USA
+                                                                                    </a>
+                                                                                        (4 examples)
+                                                                                </span>
+                                                                            </td>
+                                                                            <td style="width:5%;">
+                                                                                <table>
+                                                                                    <tr>
+                                                                                        <td>
+                                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                               href="96af9048e685fbbe2403c94a846ea213ad0a9fa2b6ee8b0292f34b8d36bef0e7.html"
+                                                                                               title="View test results">
+                                                                                                <a href='##beforetable'><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></a>
+                                                                                                </a>
+
+
+                                                                                        </td>
+                                                                                            <td>
+                                                                                                <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                                   href="96af9048e685fbbe2403c94a846ea213ad0a9fa2b6ee8b0292f34b8d36bef0e7.html"
+                                                                                                   title="View test results">
+                                                                                                    <i class="fas fa-search-plus"></i>
+                                                                                                </a>
+                                                                                            </td>
+                                                                                    </tr>
+                                                                                </table>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td style="width:95%;" class="toc-title">
+                                                                                <span class="orphan-scenario-toc-entry">
+                                                                                    <a href="#e49c8977eb1780f9532e5d099bbf2eafd727c0ef4b6d5d2aee9f34b7b6f0af7a" title="View scenario details">
+                                                                                        <i class="far fa-comment-dots"></i> Scenario Outline: Consultar el estado del clima por ciudad y pais
+                                                                                    </a>
+                                                                                        (2 examples)
+                                                                                </span>
+                                                                            </td>
+                                                                            <td style="width:5%;">
+                                                                                <table>
+                                                                                    <tr>
+                                                                                        <td>
+                                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                               href="3cf837c82643efc37a627c0af743ebc3c3bd61641f19a761409da3e30f4b2e60.html"
+                                                                                               title="View test results">
+                                                                                                <a href='##beforetable'><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></a>
+                                                                                                </a>
+
+
+                                                                                        </td>
+                                                                                            <td>
+                                                                                                <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                                   href="3cf837c82643efc37a627c0af743ebc3c3bd61641f19a761409da3e30f4b2e60.html"
+                                                                                                   title="View test results">
+                                                                                                    <i class="fas fa-search-plus"></i>
+                                                                                                </a>
+                                                                                            </td>
+                                                                                    </tr>
+                                                                                </table>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td style="width:95%;" class="toc-title">
+                                                                                <span class="orphan-scenario-toc-entry">
+                                                                                    <a href="#e25ade983983874240c61b4cb139c30cb126fabb455a5b78ffded66dc28af5e9" title="View scenario details">
+                                                                                        <i class="far fa-comment-dots"></i> Scenario Outline: Consultar el estado del clima por ciudad y sin pais
+                                                                                    </a>
+                                                                                        (1 example)
+                                                                                </span>
+                                                                            </td>
+                                                                            <td style="width:5%;">
+                                                                                <table>
+                                                                                    <tr>
+                                                                                        <td>
+                                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                               href="658af19830ab4ba27033829276d40683cd46cd1b33e77892157e0f82752c0c45.html"
+                                                                                               title="View test results">
+                                                                                                <a href='##beforetable'><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></a>
+                                                                                                </a>
+
+
+                                                                                        </td>
+                                                                                            <td>
+                                                                                                <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                                   href="658af19830ab4ba27033829276d40683cd46cd1b33e77892157e0f82752c0c45.html"
+                                                                                                   title="View test results">
+                                                                                                    <i class="fas fa-search-plus"></i>
+                                                                                                </a>
+                                                                                            </td>
+                                                                                    </tr>
+                                                                                </table>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td style="width:95%;" class="toc-title">
+                                                                                <span class="orphan-scenario-toc-entry">
+                                                                                    <a href="#e4d984d87a1b050ccf8c8bd2c76419cd120b940bf999e6dd27ef682ca21bddde" title="View scenario details">
+                                                                                        <i class="far fa-comment-dots"></i> Scenario Outline: Consultar el estado del clima por coordenadas geograficas
+                                                                                    </a>
+                                                                                        (2 examples)
+                                                                                </span>
+                                                                            </td>
+                                                                            <td style="width:5%;">
+                                                                                <table>
+                                                                                    <tr>
+                                                                                        <td>
+                                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                               href="c2d1c015a014dc51b85bb41f42560a8920f12f329ccde00ec1ac27c67c8b368e.html"
+                                                                                               title="View test results">
+                                                                                                <a href='##beforetable'><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></a>
+                                                                                                </a>
+
+
+                                                                                        </td>
+                                                                                            <td>
+                                                                                                <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                                   href="c2d1c015a014dc51b85bb41f42560a8920f12f329ccde00ec1ac27c67c8b368e.html"
+                                                                                                   title="View test results">
+                                                                                                    <i class="fas fa-search-plus"></i>
+                                                                                                </a>
+                                                                                            </td>
+                                                                                    </tr>
+                                                                                </table>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td style="width:95%;" class="toc-title">
+                                                                                <span class="orphan-scenario-toc-entry">
+                                                                                    <a href="#549af5f050b4b553eb4303fc5bdb52ae57b119e994f8ae9941f18de53e55e87f" title="View scenario details">
+                                                                                        <i class="far fa-comment-dots"></i> Scenario Outline: Consultar el estado del clima por codigo zip
+                                                                                    </a>
+                                                                                        (2 examples)
+                                                                                </span>
+                                                                            </td>
+                                                                            <td style="width:5%;">
+                                                                                <table>
+                                                                                    <tr>
+                                                                                        <td>
+                                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                               href="9add80ba025fdaa3618c2a91ee915f1d734100af273c5af0987cddb036a4cfa7.html"
+                                                                                               title="View test results">
+                                                                                                <a href='##beforetable'><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></a>
+                                                                                                </a>
+
+
+                                                                                        </td>
+                                                                                            <td>
+                                                                                                <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                                   href="9add80ba025fdaa3618c2a91ee915f1d734100af273c5af0987cddb036a4cfa7.html"
+                                                                                                   title="View test results">
+                                                                                                    <i class="fas fa-search-plus"></i>
+                                                                                                </a>
+                                                                                            </td>
+                                                                                    </tr>
+                                                                                </table>
+                                                                            </td>
+                                                                        </tr>
+                                                        </table>
+                                                    </div>
+                                                    <!--- END OF TOC --->
+
+                                                    <h3>Scenarios</h3>
+
+                                                        <a name="09a44879-d709-4b70-a9c4-a4eb0069b2b6" ></a>
+
+
+                                                            <div class="scenario-docs card" id="6d98d5af992b877ec774118823842036d128c86449a85551f2c2b2fd31fa4d22">
+                                                                <div class="scenario-docs card-header error"
+                                                                     style="min-height:1.5em;">
+                                                                    <div>
+                                                            <span class="scenario-heading">
+                                                                <a href="ba5bef9190a819f51c31b2747c9d2401f786cd1a9538c16c4106f11e621edcd5.html"
+                                                                   title="View test results">Scenario Outline: consultar el clima por ciudades en diferentes continentes</a>
+                                                            </span>
+                                                                        <span class="scenario-result-icon">
+                                                                
+
+                                                                                <a href='##beforetable'><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></a>
+                                                            </span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="scenario-docs card-body">
+                                                                        <p>Given un usuario que desea consultar el clima</p>
+                                                                        <p>When el consulta los datos meteorologicos de la ciudad {City}</p>
+                                                                        <p>Then obtiene el clima de la ciudad {City}</p>
+                                                                    <div class="examples">
+                                                                            <p><p>Examples:</p>
+<blockquote>
+</blockquote>
+<div class='example-table-in-scenario'><table>
+<thead>
+<tr><th>City</th><th></th></tr>
+</thead>
+<tbody>
+<tr><td>Paris</td><td><a href='ba5bef9190a819f51c31b2747c9d2401f786cd1a9538c16c4106f11e621edcd5.html#beforetable'><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></a></td></tr>
+<tr><td>Bogota</td><td><a href='ba5bef9190a819f51c31b2747c9d2401f786cd1a9538c16c4106f11e621edcd5.html#beforetable'><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></a></td></tr>
+<tr><td>Kabul</td><td><a href='ba5bef9190a819f51c31b2747c9d2401f786cd1a9538c16c4106f11e621edcd5.html#beforetable'><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></a></td></tr>
+<tr><td>Dakar</td><td><a href='ba5bef9190a819f51c31b2747c9d2401f786cd1a9538c16c4106f11e621edcd5.html#beforetable'><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></a></td></tr>
+<tr><td>Canberra</td><td><a href='ba5bef9190a819f51c31b2747c9d2401f786cd1a9538c16c4106f11e621edcd5.html#beforetable'><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></a></td></tr>
+<tr><td>Namekusein</td><td><a href='ba5bef9190a819f51c31b2747c9d2401f786cd1a9538c16c4106f11e621edcd5.html#beforetable'><i class='fa fa-times-circle failure-icon ' title='FAILURE'></i></a></td></tr>
+</tbody>
+</table></div>
+</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="scenario-docs card" id="70496795ffbf5b5792a46c8d2b924deefa3c8352e0c9a56fab7ae20da4f6e26c">
+                                                                <div class="scenario-docs card-header error"
+                                                                     style="min-height:1.5em;">
+                                                                    <div>
+                                                            <span class="scenario-heading">
+                                                                <a href="bded3b051ecbe61b95bf1deb33bd379ff3f0da128b24ad9abe9568eb12e4a9e4.html"
+                                                                   title="View test results">Scenario Outline: Obtener la temperatura en diferente unidades</a>
+                                                            </span>
+                                                                        <span class="scenario-result-icon">
+                                                                
+
+                                                                                <a href='##beforetable'><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></a>
+                                                            </span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="scenario-docs card-body">
+                                                                        <p>Given un usuario que desea consultar el clima</p>
+                                                                        <p>When el consulta los datos meteorologicos de la ciudad {City} en unidades {Units}</p>
+                                                                        <p>Then obtiene el clima de la ciudad {City} en unidades {Units}</p>
+                                                                    <div class="examples">
+                                                                            <p><p>Examples:</p>
+<blockquote>
+</blockquote>
+<div class='example-table-in-scenario'><table>
+<thead>
+<tr><th>City</th><th>Units</th><th></th></tr>
+</thead>
+<tbody>
+<tr><td>Paris</td><td>Fahrenheit</td><td><a href='bded3b051ecbe61b95bf1deb33bd379ff3f0da128b24ad9abe9568eb12e4a9e4.html#beforetable'><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></a></td></tr>
+<tr><td>Bogota</td><td>Celsius</td><td><a href='bded3b051ecbe61b95bf1deb33bd379ff3f0da128b24ad9abe9568eb12e4a9e4.html#beforetable'><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></a></td></tr>
+<tr><td>Kabul</td><td>Kelvin</td><td><a href='bded3b051ecbe61b95bf1deb33bd379ff3f0da128b24ad9abe9568eb12e4a9e4.html#beforetable'><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></a></td></tr>
+<tr><td>Dakar</td><td>metros</td><td><a href='bded3b051ecbe61b95bf1deb33bd379ff3f0da128b24ad9abe9568eb12e4a9e4.html#beforetable'><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></a></td></tr>
+</tbody>
+</table></div>
+</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="scenario-docs card" id="e06b55280630ae984106f5c6750ea864222e825dc8dbcbf226fd29209eef9ff2">
+                                                                <div class="scenario-docs card-header error"
+                                                                     style="min-height:1.5em;">
+                                                                    <div>
+                                                            <span class="scenario-heading">
+                                                                <a href="96af9048e685fbbe2403c94a846ea213ad0a9fa2b6ee8b0292f34b8d36bef0e7.html"
+                                                                   title="View test results">Scenario Outline: consultar el estado del clima por codigo de estado en USA</a>
+                                                            </span>
+                                                                        <span class="scenario-result-icon">
+                                                                
+
+                                                                                <a href='##beforetable'><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></a>
+                                                            </span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="scenario-docs card-body">
+                                                                        <p>Given un usuario que desea consultar el clima</p>
+                                                                        <p>When el consulta los datos meteorologicos de la ciudad {City} en el {State} de USA</p>
+                                                                        <p>Then obtiene el clima de la ciudad {City}</p>
+                                                                    <div class="examples">
+                                                                            <p><p>Examples:</p>
+<blockquote>
+</blockquote>
+<div class='example-table-in-scenario'><table>
+<thead>
+<tr><th>City</th><th>State</th><th></th></tr>
+</thead>
+<tbody>
+<tr><td>Alaska</td><td>99501</td><td><a href='96af9048e685fbbe2403c94a846ea213ad0a9fa2b6ee8b0292f34b8d36bef0e7.html#beforetable'><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></a></td></tr>
+<tr><td>California</td><td>942003</td><td><a href='96af9048e685fbbe2403c94a846ea213ad0a9fa2b6ee8b0292f34b8d36bef0e7.html#beforetable'><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></a></td></tr>
+<tr><td>Florida</td><td>32501</td><td><a href='96af9048e685fbbe2403c94a846ea213ad0a9fa2b6ee8b0292f34b8d36bef0e7.html#beforetable'><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></a></td></tr>
+<tr><td>Georgia</td><td>30301</td><td><a href='96af9048e685fbbe2403c94a846ea213ad0a9fa2b6ee8b0292f34b8d36bef0e7.html#beforetable'><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></a></td></tr>
+</tbody>
+</table></div>
+</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="scenario-docs card" id="e49c8977eb1780f9532e5d099bbf2eafd727c0ef4b6d5d2aee9f34b7b6f0af7a">
+                                                                <div class="scenario-docs card-header error"
+                                                                     style="min-height:1.5em;">
+                                                                    <div>
+                                                            <span class="scenario-heading">
+                                                                <a href="3cf837c82643efc37a627c0af743ebc3c3bd61641f19a761409da3e30f4b2e60.html"
+                                                                   title="View test results">Scenario Outline: Consultar el estado del clima por ciudad y pais</a>
+                                                            </span>
+                                                                        <span class="scenario-result-icon">
+                                                                
+
+                                                                                <a href='##beforetable'><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></a>
+                                                            </span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="scenario-docs card-body">
+                                                                        <p>Given un usuario que desea consultar el clima</p>
+                                                                        <p>When el consulta los datos meteorologicos de la ciudad {City} en el pais {Country}</p>
+                                                                        <p>Then obtiene el clima de la ciudad {City} en el pais {Country}</p>
+                                                                    <div class="examples">
+                                                                            <p><p>Examples:</p>
+<blockquote>
+</blockquote>
+<div class='example-table-in-scenario'><table>
+<thead>
+<tr><th>City</th><th>Country</th><th></th></tr>
+</thead>
+<tbody>
+<tr><td>Bogota</td><td>CO</td><td><a href='3cf837c82643efc37a627c0af743ebc3c3bd61641f19a761409da3e30f4b2e60.html#beforetable'><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></a></td></tr>
+<tr><td>Bogota</td><td>USA</td><td><a href='3cf837c82643efc37a627c0af743ebc3c3bd61641f19a761409da3e30f4b2e60.html#beforetable'><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></a></td></tr>
+</tbody>
+</table></div>
+</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="scenario-docs card" id="e25ade983983874240c61b4cb139c30cb126fabb455a5b78ffded66dc28af5e9">
+                                                                <div class="scenario-docs card-header error"
+                                                                     style="min-height:1.5em;">
+                                                                    <div>
+                                                            <span class="scenario-heading">
+                                                                <a href="658af19830ab4ba27033829276d40683cd46cd1b33e77892157e0f82752c0c45.html"
+                                                                   title="View test results">Scenario Outline: Consultar el estado del clima por ciudad y sin pais</a>
+                                                            </span>
+                                                                        <span class="scenario-result-icon">
+                                                                
+
+                                                                                <a href='##beforetable'><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></a>
+                                                            </span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="scenario-docs card-body">
+                                                                        <p>Given un usuario que desea consultar el clima</p>
+                                                                        <p>When el consulta los datos meteorologicos de la ciudad {City}</p>
+                                                                        <p>Then obtiene el clima de la ciudad {City}</p>
+                                                                    <div class="examples">
+                                                                            <p><p>Examples:</p>
+<blockquote>
+</blockquote>
+<div class='example-table-in-scenario'><table>
+<thead>
+<tr><th>City</th><th></th></tr>
+</thead>
+<tbody>
+<tr><td>Bogota</td><td><a href='658af19830ab4ba27033829276d40683cd46cd1b33e77892157e0f82752c0c45.html#beforetable'><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></a></td></tr>
+</tbody>
+</table></div>
+</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="scenario-docs card" id="e4d984d87a1b050ccf8c8bd2c76419cd120b940bf999e6dd27ef682ca21bddde">
+                                                                <div class="scenario-docs card-header error"
+                                                                     style="min-height:1.5em;">
+                                                                    <div>
+                                                            <span class="scenario-heading">
+                                                                <a href="c2d1c015a014dc51b85bb41f42560a8920f12f329ccde00ec1ac27c67c8b368e.html"
+                                                                   title="View test results">Scenario Outline: Consultar el estado del clima por coordenadas geograficas</a>
+                                                            </span>
+                                                                        <span class="scenario-result-icon">
+                                                                
+
+                                                                                <a href='##beforetable'><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></a>
+                                                            </span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="scenario-docs card-body">
+                                                                        <p>Given un usuario que desea consultar el clima</p>
+                                                                        <p>When el consulta los datos meteorologicos por coordenadas geograficas {Latitud} y {Longitud}</p>
+                                                                        <p>Then obtiene el clima de la ciudad {City}</p>
+                                                                    <div class="examples">
+                                                                            <p><p>Examples:</p>
+<blockquote>
+</blockquote>
+<div class='example-table-in-scenario'><table>
+<thead>
+<tr><th>Latitud</th><th>Longitud</th><th>City</th><th></th></tr>
+</thead>
+<tbody>
+<tr><td>35</td><td>139</td><td>Shuzenji</td><td><a href='c2d1c015a014dc51b85bb41f42560a8920f12f329ccde00ec1ac27c67c8b368e.html#beforetable'><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></a></td></tr>
+<tr><td>10</td><td>234</td><td>Bogota</td><td><a href='c2d1c015a014dc51b85bb41f42560a8920f12f329ccde00ec1ac27c67c8b368e.html#beforetable'><i class='fa fa-times-circle failure-icon ' title='FAILURE'></i></a></td></tr>
+</tbody>
+</table></div>
+</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="scenario-docs card" id="549af5f050b4b553eb4303fc5bdb52ae57b119e994f8ae9941f18de53e55e87f">
+                                                                <div class="scenario-docs card-header error"
+                                                                     style="min-height:1.5em;">
+                                                                    <div>
+                                                            <span class="scenario-heading">
+                                                                <a href="9add80ba025fdaa3618c2a91ee915f1d734100af273c5af0987cddb036a4cfa7.html"
+                                                                   title="View test results">Scenario Outline: Consultar el estado del clima por codigo zip</a>
+                                                            </span>
+                                                                        <span class="scenario-result-icon">
+                                                                
+
+                                                                                <a href='##beforetable'><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></a>
+                                                            </span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="scenario-docs card-body">
+                                                                        <p>Given un usuario que desea consultar el clima</p>
+                                                                        <p>When el consulta los datos meteorologicos por codigo {Zip}</p>
+                                                                        <p>Then obtiene el clima de la ciudad {City}</p>
+                                                                    <div class="examples">
+                                                                            <p><p>Examples:</p>
+<blockquote>
+</blockquote>
+<div class='example-table-in-scenario'><table>
+<thead>
+<tr><th>Zip</th><th>City</th><th></th></tr>
+</thead>
+<tbody>
+<tr><td>83254</td><td>Montpelier</td><td><a href='9add80ba025fdaa3618c2a91ee915f1d734100af273c5af0987cddb036a4cfa7.html#beforetable'><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></a></td></tr>
+<tr><td>83254</td><td>Bogota</td><td><a href='9add80ba025fdaa3618c2a91ee915f1d734100af273c5af0987cddb036a4cfa7.html#beforetable'><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></a></td></tr>
+</tbody>
+</table></div>
+</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="results" class="tab-pane fade">
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-sm-4">
+
+                                                <div style="width:300px;" class="chart-container automated-and-manual-results">
+                                                    <div class="ct-chart ct-square"></div>
+                                                </div>
+                                                <script>
+
+                                                    var labels = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '10%', ' ', '90%', ' ', ' ', ' '];
+                                                    // Our series array that contains series objects or in this case series data arrays
+
+                                                    var series = [{meta: 'Passing tests (automated)', value: 0}, {meta: 'Passing tests (manual)', value: 0}, {meta: 'Pending tests (automated)', value: 0}, {meta: 'Pending tests (manual)', value: 0}, {meta: 'Ignored tests (automated)', value: 0}, {meta: 'Ignored tests (manual)', value: 0}, {meta: 'Skipped tests (automated)', value: 0}, {meta: 'Skipped tests (manual)', value: 0}, {meta: 'Failing tests (automated)', value: 2}, {meta: 'Failing tests (manual)', value: 0}, {meta: 'Broken tests (automated)', value: 19}, {meta: 'Broken tests (manual)', value: 0}, {meta: 'Compromised tests (automated)', value: 0}, {meta: 'Compromised tests (manual)', value: 0}];
+
+                                                    // As options we currently only set a static size of 300x200 px. We can also omit this and use aspect ratio containers
+                                                    // as you saw in the previous example
+                                                    var options = {
+                                                        width: 350,
+                                                        height: 300
+                                                    };
+
+                                                    $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+                                                        new Chartist.Pie('.ct-chart', {
+                                                            series: series,
+                                                            labels: labels,
+                                                        }, {
+                                                            donut: true,
+                                                            donutWidth: 60,
+                                                            donutSolid: true,
+                                                            startAngle: 270,
+                                                            showLabel: true
+                                                        }, options);
+                                                    });
+
+                                                </script>
+                                            </div>
+                                            <div class="col-sm-8">
+
+                                                    <table class="table">
+                                                        <thead>
+                                                        <tr>
+                                                            <th scope="col">Scenario Results (including rows of test
+                                                                data)
+                                                            </th>
+                                                            <th scope="col" colspan="2" class="automated-stats">
+                                                                Automated
+                                                            </th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                        <tr>
+                                                                <td class="aggregate-result-count"><i
+                                                                            class='fa fa-check-circle-o success-icon'></i>&nbsp;Passing
+                                                                </td>
+                                                            <td class="automated-stats">0</td>
+                                                            <td class="automated-stats"> </td>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="aggregate-result-count"><i
+                                                                            class='fa fa-stop-circle-o pending-icon'></i>&nbsp;Pending
+                                                                </td>
+                                                            <td class="automated-stats">0</td>
+                                                            <td class="automated-stats"> </td>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="aggregate-result-count"><i
+                                                                            class='fa fa-ban ignored-icon'></i>&nbsp;Ignored
+                                                                </td>
+                                                            <td class="automated-stats">0</td>
+                                                            <td class="automated-stats"> </td>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="aggregate-result-count"><i
+                                                                            class='fa fa-fast-forward skip-icon'></i>&nbsp;Skipped
+                                                                </td>
+                                                            <td class="automated-stats">0</td>
+                                                            <td class="automated-stats"> </td>
+                                                        </tr>
+                                                        <tr>
+                                                                    <td colspan="3"><a href="40801b0faed2fb0adb39119304cd78ead704ec7a33c04e820b29b13344ef8443.html"><i
+                                                                                    class='fa fa-times failure-icon'></i>&nbsp;<em>Unsuccessful</em></a>
+                                                                    </td>
+
+                                                        </tr>
+
+                                                        <tr>
+                                                                <td class="aggregate-result-count indented-error-category">
+                                                                    <a href="d28b2aadc162d3eccd0ff1dc956a7f52786862b239b3e1d4fcda2a5d2a6da5ac.html"><i
+                                                                                class='fa fa-times-circle failure-icon'></i>&nbsp;Failed</a>
+                                                                </td>
+                                                            <td class="automated-stats">2</td>
+                                                            <td class="automated-stats">10%</td>
+                                                        <tr>
+                                                                <td class="aggregate-result-count indented-error-category">
+                                                                    <a href="dc8a726734a603d53d25b0f175e5b3623813f38f25a54c99ef1aa6570c7ff28d.html"><i
+                                                                                class='fa fa-exclamation-triangle error-icon'></i>&nbsp;Broken</a>
+                                                                </td>
+                                                            <td class="automated-stats">19</td>
+                                                            <td class="automated-stats">90%</td>
+                                                        <tr>
+                                                                <td class="aggregate-result-count indented-error-category">
+                                                                    <i
+                                                                            class='fa fa-chain-broken compromised-icon'></i>&nbsp;Compromised
+                                                                </td>
+                                                            <td class="automated-stats">0</td>
+                                                            <td class="automated-stats"> </td>
+                                                        </tr>
+                                                        <tr class="summary-stats">
+                                                            <td class="aggregate-result-count">Total</td>
+                                                            <td class="automated-stats">21</td>
+                                                            <td class="automated-stats"></td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <table class="table">
+                                                        <thead>
+                                                        <tr>
+                                                            <th>Execution Time</th>
+                                                            <th>Clock Time</th>
+                                                            <th>Fastest Test</th>
+                                                            <th>Slowest Test</th>
+                                                            <th>Average Execution Time</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                        <tr>
+                                                            <td>13s</td>
+                                                            <td> 11m 46s</td>
+                                                            <td>476ms</td>
+                                                            <td>3s</td>
+                                                            <td>1s</td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <h3><i class="fas fa-cogs"></i> Automated Tests</h3>
+
+                                                        <table class="scenario-result-table table"
+                                                               id="scenario-results">
+                                                            <thead>
+                                                            <tr>
+                                                                <th class="test-name-column">Scenario</th>
+                                                                <th>Steps</th>
+                                                                <th>Started</th>
+                                                                <th>Duration</th>
+                                                                <th>Result</th>
+                                                            </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr class="scenario-result ERROR">
+                                                                    <td>
+                                                                            <a href="ba5bef9190a819f51c31b2747c9d2401f786cd1a9538c16c4106f11e621edcd5.html">consultar el clima por ciudades en diferentes continentes</a>
+                                                                            (6 examples)
+                                                                    </td>
+                                                                    <td>3</td>
+                                                                    <td>21:08:58</td>
+                                                                    <td>6s 219ms</td>
+                                                                    <td>
+                                                                            <a href='##beforetable'><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></a> <span
+                                                                                style="display:none">ERROR</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="scenario-result ERROR">
+                                                                    <td>
+                                                                            <a href="bded3b051ecbe61b95bf1deb33bd379ff3f0da128b24ad9abe9568eb12e4a9e4.html">Obtener la temperatura en diferente unidades</a>
+                                                                            (4 examples)
+                                                                    </td>
+                                                                    <td>3</td>
+                                                                    <td>20:57:12</td>
+                                                                    <td>2s 281ms</td>
+                                                                    <td>
+                                                                            <a href='##beforetable'><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></a> <span
+                                                                                style="display:none">ERROR</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="scenario-result ERROR">
+                                                                    <td>
+                                                                            <a href="96af9048e685fbbe2403c94a846ea213ad0a9fa2b6ee8b0292f34b8d36bef0e7.html">consultar el estado del clima por codigo de estado en USA</a>
+                                                                            (4 examples)
+                                                                    </td>
+                                                                    <td>3</td>
+                                                                    <td>20:57:14</td>
+                                                                    <td>1s 974ms</td>
+                                                                    <td>
+                                                                            <a href='##beforetable'><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></a> <span
+                                                                                style="display:none">ERROR</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="scenario-result ERROR">
+                                                                    <td>
+                                                                            <a href="3cf837c82643efc37a627c0af743ebc3c3bd61641f19a761409da3e30f4b2e60.html">Consultar el estado del clima por ciudad y pais</a>
+                                                                            (2 examples)
+                                                                    </td>
+                                                                    <td>3</td>
+                                                                    <td>20:57:16</td>
+                                                                    <td>998ms</td>
+                                                                    <td>
+                                                                            <a href='##beforetable'><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></a> <span
+                                                                                style="display:none">ERROR</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="scenario-result ERROR">
+                                                                    <td>
+                                                                            <a href="658af19830ab4ba27033829276d40683cd46cd1b33e77892157e0f82752c0c45.html">Consultar el estado del clima por ciudad y sin pais</a>
+                                                                            (1 example)
+                                                                    </td>
+                                                                    <td>3</td>
+                                                                    <td>20:57:17</td>
+                                                                    <td>495ms</td>
+                                                                    <td>
+                                                                            <a href='##beforetable'><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></a> <span
+                                                                                style="display:none">ERROR</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="scenario-result ERROR">
+                                                                    <td>
+                                                                            <a href="c2d1c015a014dc51b85bb41f42560a8920f12f329ccde00ec1ac27c67c8b368e.html">Consultar el estado del clima por coordenadas geograficas</a>
+                                                                            (2 examples)
+                                                                    </td>
+                                                                    <td>3</td>
+                                                                    <td>20:57:18</td>
+                                                                    <td>975ms</td>
+                                                                    <td>
+                                                                            <a href='##beforetable'><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></a> <span
+                                                                                style="display:none">ERROR</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="scenario-result ERROR">
+                                                                    <td>
+                                                                            <a href="9add80ba025fdaa3618c2a91ee915f1d734100af273c5af0987cddb036a4cfa7.html">Consultar el estado del clima por codigo zip</a>
+                                                                            (2 examples)
+                                                                    </td>
+                                                                    <td>3</td>
+                                                                    <td>20:57:19</td>
+                                                                    <td>974ms</td>
+                                                                    <td>
+                                                                            <a href='##beforetable'><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></a> <span
+                                                                                style="display:none">ERROR</span>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <h3><i class="fas fa-edit"></i> Manual Tests</h3>
+
+                                                        No manual tests were recorded
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <span class="version">Serenity BDD version 2.4.51</span>
+                    </div>
+                </div>
+            </div>
+</body>
+</html>
