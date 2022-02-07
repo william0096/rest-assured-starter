@@ -1,0 +1,1 @@
+{"id":"consulta-de-datos-metereologicos-para-cualquier-ubicacion-en-la-tierra;consultar-el-estado-del-clima-por-codigo-zip","name":"Consultar el estado del clima por codigo zip","result":"ERROR","testFailureSummary":"ERROR;java.lang.NullPointerException;Cannot invoke method startsWith() on null object;JSONAssertion.groovy"}

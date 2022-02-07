@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="3" name="consulta de datos metereologicos para cualquier ubicacion en la tierra" skipped="0" tests="22" time="21.13" timestamp="2022-02-07 12:15:11"><testcase name="consultar el clima por ciudades en diferentes continentes"><failure message="&#10;Expected: &lt;200&gt;&#10;     but: was &lt;404&gt;" type="java.lang.AssertionError">
+Expected: &lt;200&gt;
+     but: was &lt;404&gt;</failure><system-err>
+Expected: &lt;200&gt;
+     but: was &lt;404&gt;
+com.serenitybdd.danielbernate.adl.steps.GetWeatherDataStepDefinitions.get_the_wheather_for_the_city(GetWeatherDataStepDefinitions.java:35)
+✽.obtiene el clima de la ciudad Namekusein(file:///Users/daniel.bernate/Documents/will/rest-assured-starter/src/test/resources/features/clima/geteatherData.feature:7)
+</system-err></testcase><testcase name="Obtener la temperatura en diferente unidades"/><testcase name="consultar el estado del clima por codigo de estado en USA"/><testcase name="Consultar el estado del clima por ciudad y pais"/><testcase name="Consultar el estado del clima por ciudad y sin pais"/><testcase name="Consultar el estado del clima por coordenadas geograficas"><failure message="&#10;Expected: &lt;200&gt;&#10;     but: was &lt;400&gt;" type="java.lang.AssertionError">
+Expected: &lt;200&gt;
+     but: was &lt;400&gt;</failure><system-err>
+Expected: &lt;200&gt;
+     but: was &lt;400&gt;
+com.serenitybdd.danielbernate.adl.steps.GetWeatherDataStepDefinitions.get_the_wheather_for_the_city(GetWeatherDataStepDefinitions.java:35)
+✽.obtiene el clima de la ciudad Bogota(file:///Users/daniel.bernate/Documents/will/rest-assured-starter/src/test/resources/features/clima/geteatherData.feature:61)
+</system-err></testcase><testcase name="Consultar el estado del clima por codigo zip"/><testcase name="Validacion tecnica del servicio de consulta"><failure message="1 expectation failed.&#10;Response body doesn't match expectation.&#10;Expected: The content to match the given JSON schema.&#10;error: instance type (number) does not match any allowed primitive type (allowed: [&quot;integer&quot;])&#10;    level: &quot;error&quot;&#10;    schema: {&quot;loadingURI&quot;:&quot;#&quot;,&quot;pointer&quot;:&quot;/properties/wind/properties/speed&quot;}&#10;    instance: {&quot;pointer&quot;:&quot;/wind/speed&quot;}&#10;    domain: &quot;validation&quot;&#10;    keyword: &quot;type&quot;&#10;    found: &quot;number&quot;&#10;    expected: [&quot;integer&quot;]&#10;&#10;  Actual: {&quot;coord&quot;:{&quot;lon&quot;:-74.0817,&quot;lat&quot;:4.6097},&quot;weather&quot;:[{&quot;id&quot;:803,&quot;main&quot;:&quot;Clouds&quot;,&quot;description&quot;:&quot;muy nuboso&quot;,&quot;icon&quot;:&quot;04n&quot;}],&quot;base&quot;:&quot;stations&quot;,&quot;main&quot;:{&quot;temp&quot;:285.88,&quot;feels_like&quot;:285.66,&quot;temp_min&quot;:285.88,&quot;temp_max&quot;:285.88,&quot;pressure&quot;:1027,&quot;humidity&quot;:94},&quot;visibility&quot;:10000,&quot;wind&quot;:{&quot;speed&quot;:1.54,&quot;deg&quot;:330},&quot;clouds&quot;:{&quot;all&quot;:75},&quot;dt&quot;:1644210628,&quot;sys&quot;:{&quot;type&quot;:1,&quot;id&quot;:8582,&quot;country&quot;:&quot;CO&quot;,&quot;sunrise&quot;:1644232325,&quot;sunset&quot;:1644275335},&quot;timezone&quot;:-18000,&quot;id&quot;:3688689,&quot;name&quot;:&quot;Bogota&quot;,&quot;cod&quot;:200}&#10;" type="java.lang.AssertionError">1 expectation failed.
+Response body doesn't match expectation.
+Expected: The content to match the given JSON schema.
+error: instance type (number) does not match any allowed primitive type (allowed: ["integer"])
+    level: "error"
+    schema: {"loadingURI":"#","pointer":"/properties/wind/properties/speed"}
+    instance: {"pointer":"/wind/speed"}
+    domain: "validation"
+    keyword: "type"
+    found: "number"
+    expected: ["integer"]
+
+  Actual: {"coord":{"lon":-74.0817,"lat":4.6097},"weather":[{"id":803,"main":"Clouds","description":"muy nuboso","icon":"04n"}],"base":"stations","main":{"temp":285.88,"feels_like":285.66,"temp_min":285.88,"temp_max":285.88,"pressure":1027,"humidity":94},"visibility":10000,"wind":{"speed":1.54,"deg":330},"clouds":{"all":75},"dt":1644210628,"sys":{"type":1,"id":8582,"country":"CO","sunrise":1644232325,"sunset":1644275335},"timezone":-18000,"id":3688689,"name":"Bogota","cod":200}
+</failure><system-err>1 expectation failed.
+Response body doesn't match expectation.
+Expected: The content to match the given JSON schema.
+error: instance type (number) does not match any allowed primitive type (allowed: ["integer"])
+    level: "error"
+    schema: {"loadingURI":"#","pointer":"/properties/wind/properties/speed"}
+    instance: {"pointer":"/wind/speed"}
+    domain: "validation"
+    keyword: "type"
+    found: "number"
+    expected: ["integer"]
+
+  Actual: {"coord":{"lon":-74.0817,"lat":4.6097},"weather":[{"id":803,"main":"Clouds","description":"muy nuboso","icon":"04n"}],"base":"stations","main":{"temp":285.88,"feels_like":285.66,"temp_min":285.88,"temp_max":285.88,"pressure":1027,"humidity":94},"visibility":10000,"wind":{"speed":1.54,"deg":330},"clouds":{"all":75},"dt":1644210628,"sys":{"type":1,"id":8582,"country":"CO","sunrise":1644232325,"sunset":1644275335},"timezone":-18000,"id":3688689,"name":"Bogota","cod":200}
+
+com.serenitybdd.danielbernate.adl.steps.GetWeatherDataStepDefinitions.validy_jsonschema_ok(GetWeatherDataStepDefinitions.java:73)
+✽.la validacion del jschema es satisfactoria(file:///Users/daniel.bernate/Documents/will/rest-assured-starter/src/test/resources/features/clima/geteatherData.feature:80)
+</system-err></testcase></testsuite>
